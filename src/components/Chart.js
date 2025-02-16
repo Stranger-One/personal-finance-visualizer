@@ -8,14 +8,9 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const sortMonths = (a, b) => {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  return months.indexOf(a.month) - months.indexOf(b.month);
-};
-
 export default function Chart({ transactions }) {
   if (!transactions || transactions.length === 0) {
-    return <div>No data available</div>;
+    return <div className="w-full bg-gray-100  flex justify-center items-center min-h-[200px] ">No data available</div>;
   }
 
   const data = transactions.reduce((acc, txn) => {
@@ -29,10 +24,14 @@ export default function Chart({ transactions }) {
   const chartData = Object.entries(data).map(([key, value]) => ({
     month: key,
     amount: value,
-  })).sort(sortMonths);
+  }));
+
+  const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  chartData.sort((a, b) => monthOrder.indexOf(a.month) - monthOrder.indexOf(b.month));
 
   return (
-    <div className="w-full mt-10">
+    <div className="w-full mt-10 bg-gray-100 p-6 rounded-lg shadow-md ">
+      <h2 className="text-xl font-semibold text-gray-700 mb-4">Monthly expenses chart</h2>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={chartData}>
           <XAxis dataKey="month" />
