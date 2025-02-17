@@ -9,7 +9,7 @@ import {
 } from "recharts";
 
 export default function Chart({ transactions }) {
-  if (!transactions || transactions.length === 0) {
+  if (!transactions || transactions?.length === 0) {
     return <div className="w-full bg-gray-100  flex justify-center items-center min-h-[200px] ">No data available</div>;
   }
 

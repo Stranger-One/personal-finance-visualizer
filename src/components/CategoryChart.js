@@ -9,7 +9,7 @@ export default function CategoryChart({ transactions }) {
     transactions?.forEach(({ category, amount }) => {
       categories[category] = (categories[category] || 0) + amount;
     });
-    console.log({ categories });
+    // console.log({ categories });
 
     setData(
       Object.entries(categories).map(([name, value]) => ({ name, value }))
@@ -39,7 +39,7 @@ export default function CategoryChart({ transactions }) {
               {data.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
+                  fill={COLORS[index % COLORS?.length]}
                 />
               ))}
             </Pie>

@@ -16,7 +16,7 @@ function BudgetForm({ setBudgets }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await axios.post("/api/budgets", budget);
-    console.log({data: res.data});
+    // console.log({data: res.data});
     setBudgets((prev) => [res.data, ...prev]);
   };
 

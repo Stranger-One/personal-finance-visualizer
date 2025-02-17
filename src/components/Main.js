@@ -19,12 +19,12 @@ function Main() {
     try {
       await axios.get(`/api/transactions`).then((res) => {
         setTransactions(res.data);
-        console.log({ data: res.data });
+        // console.log({ data: res.data });
       });
   
       await axios.get(`/api/budgets?month=${selectedMonth}`).then((res) => {
         setBudgets(res.data);
-        console.log({ data: res.data });
+        // console.log({ data: res.data });
       });
     } catch (error) {
       console.error(error)

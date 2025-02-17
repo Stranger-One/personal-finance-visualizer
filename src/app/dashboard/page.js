@@ -20,7 +20,7 @@ function Dashboard() {
       const total = res.data.reduce((sum, tx) => sum + tx.amount, 0);
       setSummary({ total, transactions: res.data });
 
-      console.log({ data: res.data });
+      // console.log({ data: res.data });
       setLoading(false);
     });
   };

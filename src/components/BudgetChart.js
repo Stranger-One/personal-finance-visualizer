@@ -29,7 +29,7 @@ function BudgetComparisonChart({ transactions, budgets, selectedMonth, setSelect
         { label: 'December' },
     ];
 
-    console.log({transactions, budgets, selectedMonth})
+    // console.log({transactions, budgets, selectedMonth})
 
     return (
         <div className="w-full bg-gray-100 p-6 rounded-lg shadow-md">
@@ -50,7 +50,7 @@ function BudgetComparisonChart({ transactions, budgets, selectedMonth, setSelect
                     ))}
                 </select>
             </div>
-            { budgets.length ? <ResponsiveContainer width="100%" height={300}>
+            { budgets?.length ? <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={data}>
                     <XAxis dataKey="category" />
                     <YAxis />

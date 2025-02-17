@@ -7,18 +7,18 @@ export async function GET(req) {
   await connectDB();
   const { searchParams } = new URL(req.url);
   const month = searchParams.get('month');
-  console.log({ month });
+  // console.log({ month });
   
   const query = month ? { month } : {};
   const budgets = await Budget.find(query).sort({ createdAt: -1 });
-  console.log({ budgets });
+  // console.log({ budgets });
   return NextResponse.json(budgets);
 }
 
 export async function POST(req) {
   await connectDB();
   const data = await req.json();
-  console.log({data})
+  // console.log({data})
   const budget = await new Budget(data).save();
   return NextResponse.json(budget);
 }
